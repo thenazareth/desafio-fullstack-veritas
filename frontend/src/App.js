@@ -55,18 +55,38 @@ function App() {
 
   const handleSave = async (updatedTask) => {
     try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(updatedTask),
-      });
-      
-      if (response.ok) {
-        const newTask = await response.json();
-        setTasks(prev => [...prev, newTask]);
-        handleClose();
+      if (modalState.mode === 'edit') {
+        // edit usa PUT
+        const response = await fetch(`${API_URL}/${updatedTask.id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedTask),
+        });
+        
+        if (response.ok) {
+          const savedTask = await response.json();
+          setTasks(prev => prev.map(task => 
+            task.id === savedTask.id ? savedTask : task
+          ));
+          handleClose();
+        }
+      } else {
+        // Add usa POST  
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedTask),
+        });
+        
+        if (response.ok) {
+          const newTask = await response.json();
+          setTasks(prev => [...prev, newTask]);
+          handleClose();
+        }
       }
     } catch (error) {
       console.error('Erro ao salvar task:', error);
