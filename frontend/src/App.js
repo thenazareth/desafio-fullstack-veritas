@@ -53,8 +53,14 @@ function App() {
     })
   }
 
-  const handleSave = async (updatedTask) => {
-    try {
+const handleSave = async (updatedTask) => {
+  
+  if (!updatedTask.titulo || !updatedTask.titulo.trim()) {
+    alert("O título é obrigatório.");
+    return;
+  }
+
+  try {
       if (modalState.mode === 'edit') {
         // edit usa PUT
         const response = await fetch(`${API_URL}/${updatedTask.id}`, {
