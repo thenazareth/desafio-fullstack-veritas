@@ -12,10 +12,10 @@
         <ol>
             <li>Navegue até a pasta backend</li>
             <li>Execute o comando 'go run .'</li>
-            <li>Para visualizar o backend: http://localhost:8080/tasks</li>
+            <li>Para visualizar o backend: <a href="http://localhost:8080/tasks">http://localhost:8080/tasks</a></li>
             <li>Em outro terminal, navegue até a pasta frontend</li>
             <li>Execute o comando 'npm run start'</li>
-            <li>Frontend deve abrir por padrão, caso não abra: http://localhost:3000/</li>
+            <li>Frontend deve abrir por padrão, caso não abra: <a href="http://localhost:3000/">http://localhost:3000/</a></li>
         </ol>
 <h2>COM DOCKER</h2>
     <h3>PRÉ-REQUISITOS:</h3>
@@ -27,8 +27,8 @@
             <li>Abra o Docker</li>
             <li>Navegue até a raiz do projeto</li>
             <li>Execute o comando 'docker-compose up --build'</li> 
-            <li>Para visualizar o backend: http://localhost:8080/tasks</li>
-            <li>Para visualizar o frontend: http://localhost:3000/</li>
+            <li>Para visualizar o backend: <a href="http://localhost:8080/tasks">http://localhost:8080/tasks</a></li>
+            <li>Para visualizar o frontend: <a href="http://localhost:3000/">http://localhost:3000/</a></li>
         </ol>
     <p>Usuários de Linux podem seguir os seguintes comandos:</p>
     <ul>
