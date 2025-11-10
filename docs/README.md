@@ -1,4 +1,4 @@
-<h1>INSTRUÇÕES PARA RODAR O PROJETO: WINDOWS e linux</h1>
+<h1>INSTRUÇÕES PARA RODAR O PROJETO: WINDOWS (e linux)</h1>
 
 <h2>SEM DOCKER</h2>
     <h3>PRÉ-REQUISITOS:</h3>
@@ -35,11 +35,10 @@
         <li>sudo apt-get docker (baixar docker)</li>
         <li>sudo apt-get docker-compose (puglin docker-compose)</li>
         <li>sudo systemctl start docker (inicar servidor manualmente)</li>
-        <li>docker compose up --build (executar a aplicação)</li> 
+        <li>docker compose up --build (executar a aplicação)</li>
     </ul>
-    <p>Para visualizar o backend: http://localhost:8080/tasks</p>
-    <p>Para visualizar o frontend: http://localhost:3000/</p>
-    <p> ninguém mandou ser linux user :p </p>
+    <p>Para visualizar o backend: <a href="http://localhost:8080/tasks">http://localhost:8080/tasks</a></p>
+    <p>Para visualizar o frontend: <a href="http://localhost:3000/">http://localhost:3000/</a></p>
     
 
 
