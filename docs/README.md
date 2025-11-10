@@ -31,12 +31,14 @@
             <li>Para visualizar o frontend: http://localhost:3000/</li>
         </ol>
     <p>Usuários de Linux podem seguir os seguintes comandos:</p>
-    - sudo apt-get docker (baixar docker)
-    - sudo apt-get docker-compose (puglin docker-compose)
-    - sudo systemctl start docker (inicar servidor manualmente)
-    - docker compose up --build (executar a aplicação)
-    - Para visualizar o backend: http://localhost:8080/tasks
-    - Para visualizar o frontend: http://localhost:3000/
+    <ul>
+        <li>sudo apt-get docker (baixar docker)</li>
+        <li>sudo apt-get docker-compose (puglin docker-compose)</li>
+        <li>sudo systemctl start docker (inicar servidor manualmente)</li>
+        <li>docker compose up --build (executar a aplicação)</li> 
+    </ul>
+    <p>Para visualizar o backend: http://localhost:8080/tasks</p>
+    <p>Para visualizar o frontend: http://localhost:3000/</p>
     <p> ninguém mandou ser linux user :p </p>
     
 
