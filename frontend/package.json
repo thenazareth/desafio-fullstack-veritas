@@ -1,5 +1,6 @@
 {
-  "name": "veritas",
+  "name": "frontend",
+  "proxy": "http://backend:8080",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
