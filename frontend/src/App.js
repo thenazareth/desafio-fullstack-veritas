@@ -99,18 +99,15 @@ function App() {
   const taskId = active.id;
   const newStatus = over.id;
   
-  // Encontra a task
   const taskToUpdate = tasks.find(task => task.id === taskId);
   if (!taskToUpdate) return;
 
-  // Atualiza LOCALMENTE (como você já tinha)
   setTasks(prevTasks =>
     prevTasks.map(task =>
       task.id === taskId ? { ...task, status: newStatus } : task
     )
   );
 
-  // 👇 E AGORA ATUALIZA NO BACKEND TAMBÉM
   fetch(`${API_URL}/${taskId}`, {
     method: 'PUT',
     headers: {
@@ -122,7 +119,6 @@ function App() {
     }),
   }).catch(error => {
     console.error('Erro ao atualizar no backend:', error);
-    // Se der erro, reverte o estado local
     setTasks(prevTasks =>
       prevTasks.map(task =>
         task.id === taskId ? { ...task, status: taskToUpdate.status } : task
