@@ -11,7 +11,7 @@
     <h3>EXECUTANDO APLICAÇÃO: BACKEND & FRONTEND</h3>
         <ol>
             <li>Navegue até a pasta backend</li>
-            <li>Execute o comando 'go run main.go'</li>
+            <li>Execute o comando 'go run .'</li>
             <li>Para visualizar o backend: http://localhost:8080/tasks</li>
             <li>Em outro terminal, navegue até a pasta frontend</li>
             <li>Execute o comando 'npm run start'</li>
@@ -27,7 +27,7 @@
         <ol>
             <li>Abra o Docker</li>
             <li>Navegue até a raiz do projeto</li>
-            <li>Execute o comando 'docker-compose up --build'</li>
+            <li>Execute o comando 'docker-compose up --build'</li> 
             <li>Para visualizar o backend: http://localhost:8080/tasks</li>
             <li>Para visualizar o frontend: http://localhost:3000/</li>
         </ol>
