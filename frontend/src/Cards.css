@@ -1,0 +1,32 @@
+
+.taskCard{
+    border: 2px solid #a231d6;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.taskCard:hover{
+    box-shadow: 0 4px 10px rgb(87, 14, 97);
+}
+
+.taskHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#closeButton img{
+    height: 24px;
+    width: 24px;
+}
+
+h2{
+    color:#411755;
+}
+
+p{
+    color: black;
+}

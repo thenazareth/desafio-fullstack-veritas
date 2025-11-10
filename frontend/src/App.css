@@ -1,0 +1,59 @@
+.App {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #d4d8d8f8;
+  gap: 20px;
+}
+ 
+.kanbanHeader{
+  display:flex;
+  width: 35%;
+  border-radius: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.addSect {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(230, 230, 230);
+  width: 100%;
+  padding-left: 16px;
+  border-radius: 20px;
+  gap: 20px;
+}
+
+.addSect button{
+  height: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  border:#a231d6 solid 2px;
+}
+
+
+.Kanban{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+button{
+  border-radius: 25px;
+  background-color: transparent;
+  border: none;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: #a231d6;
+  color: white;
+}
+

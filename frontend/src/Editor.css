@@ -1,0 +1,79 @@
+.overlay {
+  position: fixed;      /* Fixa na tela */
+  top: 0;               /* Começa no topo */
+  left: 0;              /* Começa na esquerda */
+  width: 100vw;         /* Cobre toda a largura */
+  height: 100vh;        /* Cobre toda a altura */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    background-color: rgb(230, 230, 230);
+    height: 40%;
+    width: auto;
+    border-radius: 20px;
+    padding: 16px;
+}
+
+.contentHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 24px;
+}
+
+#cardTitle{
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    border-radius: 30px;
+    outline: none;
+    height: 30px;
+    padding-left: 8px;
+    font-size: 18px;
+}
+
+.contentMidle{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width:100%;
+}
+
+#cardDesc{
+    appearance: none;
+    border: 2px solid #a231d6;
+    background-color: transparent;
+    padding-left: 8px;
+    border-radius: 30px;
+    outline: none;
+    height: 30px;
+    font-size: 16px;
+    width: 60%;
+}
+
+.contentFooter{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.contentFooter button{
+    border: 2px solid #a231d6;
+    font-size: 16px;
+}

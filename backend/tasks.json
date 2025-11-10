@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "titulo": "Frondend: Criar frontend em REACT",
+      "descricao": "Instalar pacotes, criar componentes",
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "titulo": "Frontend: Usar Drag and Drop",
+      "descricao": "Instalar Dnd kit e implementar",
+      "status": "done"
+    },
+    {
+      "id": 3,
+      "titulo": "Frontend: Criar funções CRUD",
+      "descricao": "Adicionar, visualizar, atualizar e excluir cards",
+      "status": "done"
+    },
+    {
+      "id": 4,
+      "titulo": "Backend: Persistir JSON ",
+      "descricao": "Criar tasks.json e funções de persistencia",
+      "status": "done"
+    },
+    {
+      "id": 5,
+      "titulo": "Backend: Criar endpoints",
+      "descricao": "Implementar GET, PUT, DELETE e POST",
+      "status": "done"
+    },
+    {
+      "id": 6,
+      "titulo": "Backend: Linkar com o frontend",
+      "descricao": "Ligar backend com frontend",
+      "status": "done"
+    },
+    {
+      "id": 7,
+      "titulo": "Backend: Mexer no CORS",
+      "descricao": "Instalar pacotes e criar função",
+      "status": "done"
+    }
+  ]
+}

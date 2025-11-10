@@ -1,0 +1,15 @@
+
+.column {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: rgb(230, 230, 230);
+    padding: 15px;
+    width: 30%;
+}
+
+.columnCards {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
