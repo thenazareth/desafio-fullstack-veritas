@@ -13,12 +13,6 @@
       "status": "done"
     },
     {
-      "id": 3,
-      "titulo": "asdasdasd",
-      "descricao": "Adicionar, visualizar, atualizar e excluir cards",
-      "status": "inprogress"
-    },
-    {
       "id": 4,
       "titulo": "Backend: Persistir JSON ",
       "descricao": "Criar tasks.json e funções de persistencia",
@@ -46,6 +40,12 @@
       "id": 8,
       "titulo": "DOCKER FUNFA",
       "descricao": "testando o bug",
+      "status": "todo"
+    },
+    {
+      "id": 9,
+      "titulo": "TESTANDO MODULARIZAÇÃO",
+      "descricao": "",
       "status": "todo"
     }
   ]

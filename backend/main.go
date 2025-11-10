@@ -6,7 +6,6 @@ import (
 	"os"
 	"log"
 	"net/http"
-	"strconv"
 	"github.com/rs/cors"
 	"github.com/gorilla/mux"
 )
@@ -67,10 +66,11 @@ func corsMiddleware(next http.Handler) http.Handler {
     })
 }
 
-func getTasks(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(tasks)
-}
+
+// func getTasks(w http.ResponseWriter, r *http.Request) {
+// 	w.Header().Set("Content-Type", "application/json")
+// 	json.NewEncoder(w).Encode(tasks)
+// }
 
 func findNextID() int {
 	maxID := 0
@@ -112,105 +112,104 @@ func saveTasks() {
 	}
 }
 
-func createTask(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "application/json")
+// func createTask(w http.ResponseWriter, r *http.Request) {
+//     w.Header().Set("Content-Type", "application/json")
     
-    var newTask Task
-    err := json.NewDecoder(r.Body).Decode(&newTask)
-    if err != nil {
-        http.Error(w, "JSON inválido", http.StatusBadRequest)
-        return
-    }
+//     var newTask Task
+//     err := json.NewDecoder(r.Body).Decode(&newTask)
+//     if err != nil {
+//         http.Error(w, "JSON inválido", http.StatusBadRequest)
+//         return
+//     }
     
-    if newTask.Titulo == "" {
-        http.Error(w, "Título é obrigatório", http.StatusBadRequest)
-        return
-    }
+//     if newTask.Titulo == "" {
+//         http.Error(w, "Título é obrigatório", http.StatusBadRequest)
+//         return
+//     }
     
-    validStatus := map[string]bool{
-        "todo":       true,
-        "inprogress": true,
-        "done":       true,
-    }
-    if !validStatus[newTask.Status] {
-        http.Error(w, "Status inválido. Use: todo, inprogress ou done", http.StatusBadRequest)
-        return
-    }
+//     validStatus := map[string]bool{
+//         "todo":       true,
+//         "inprogress": true,
+//         "done":       true,
+//     }
+//     if !validStatus[newTask.Status] {
+//         http.Error(w, "Status inválido. Use: todo, inprogress ou done", http.StatusBadRequest)
+//         return
+//     }
     
-    newTask.ID = findNextID()
-    tasks = append(tasks, newTask)
+//     newTask.ID = findNextID()
+//     tasks = append(tasks, newTask)
     
-    saveTasks()
+//     saveTasks()
     
-    w.WriteHeader(http.StatusCreated)
-    json.NewEncoder(w).Encode(newTask)
-}
+//     w.WriteHeader(http.StatusCreated)
+//     json.NewEncoder(w).Encode(newTask)
+// }
 
-func updateTask(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "application/json")
+// func updateTask(w http.ResponseWriter, r *http.Request) {
+//     w.Header().Set("Content-Type", "application/json")
     
-    params := mux.Vars(r)
-    id, err := strconv.Atoi(params["id"])
-    if err != nil {
-        http.Error(w, "ID inválido", http.StatusBadRequest)
-        return
-    }
+//     params := mux.Vars(r)
+//     id, err := strconv.Atoi(params["id"])
+//     if err != nil {
+//         http.Error(w, "ID inválido", http.StatusBadRequest)
+//         return
+//     }
     
-    var updatedTask Task
-    err = json.NewDecoder(r.Body).Decode(&updatedTask)
-    if err != nil {
-        http.Error(w, "JSON inválido", http.StatusBadRequest)
-        return
-    }
+//     var updatedTask Task
+//     err = json.NewDecoder(r.Body).Decode(&updatedTask)
+//     if err != nil {
+//         http.Error(w, "JSON inválido", http.StatusBadRequest)
+//         return
+//     }
     
-    if updatedTask.Titulo == "" {
-        http.Error(w, "Título é obrigatório", http.StatusBadRequest)
-        return
-    }
+//     if updatedTask.Titulo == "" {
+//         http.Error(w, "Título é obrigatório", http.StatusBadRequest)
+//         return
+//     }
     
-    validStatus := map[string]bool{
-        "todo":       true,
-        "inprogress": true,
-        "done":       true,
-    }
-    if !validStatus[updatedTask.Status] {
-        http.Error(w, "Status inválido", http.StatusBadRequest)
-        return
-    }
+//     validStatus := map[string]bool{
+//         "todo":       true,
+//         "inprogress": true,
+//         "done":       true,
+//     }
+//     if !validStatus[updatedTask.Status] {
+//         http.Error(w, "Status inválido", http.StatusBadRequest)
+//         return
+//     }
     
-    for i, task := range tasks {
-        if task.ID == id {
-            updatedTask.ID = id 
-            tasks[i] = updatedTask
-            saveTasks()
-            json.NewEncoder(w).Encode(updatedTask)
-            return
-        }
-    }
+//     for i, task := range tasks {
+//         if task.ID == id {
+//             updatedTask.ID = id 
+//             tasks[i] = updatedTask
+//             saveTasks()
+//             json.NewEncoder(w).Encode(updatedTask)
+//             return
+//         }
+//     }
     
-    http.Error(w, "Tarefa não encontrada", http.StatusNotFound)
-}
+//     http.Error(w, "Tarefa não encontrada", http.StatusNotFound)
+// }
 
-// Handler DELETE /tasks/{id}
-func deleteTask(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "application/json")
+// func deleteTask(w http.ResponseWriter, r *http.Request) {
+//     w.Header().Set("Content-Type", "application/json")
     
-    params := mux.Vars(r)
-    id, err := strconv.Atoi(params["id"])
-    if err != nil {
-        http.Error(w, "ID inválido", http.StatusBadRequest)
-        return
-    }
+//     params := mux.Vars(r)
+//     id, err := strconv.Atoi(params["id"])
+//     if err != nil {
+//         http.Error(w, "ID inválido", http.StatusBadRequest)
+//         return
+//     }
     
-    for i, task := range tasks {
-        if task.ID == id {
+//     for i, task := range tasks {
+//         if task.ID == id {
             
-            tasks = append(tasks[:i], tasks[i+1:]...)
-            saveTasks()
-            w.WriteHeader(http.StatusNoContent)
-            return
-        }
-    }
+//             tasks = append(tasks[:i], tasks[i+1:]...)
+//             saveTasks()
+//             w.WriteHeader(http.StatusNoContent)
+//             return
+//         }
+//     }
     
-    http.Error(w, "Tarefa não encontrada", http.StatusNotFound)
-}
+//     http.Error(w, "Tarefa não encontrada", http.StatusNotFound)
+// }
