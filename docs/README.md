@@ -40,6 +40,16 @@
     <p>Para visualizar o backend: <a href="http://localhost:8080/tasks">http://localhost:8080/tasks</a></p>
     <p>Para visualizar o frontend: <a href="http://localhost:3000/">http://localhost:3000/</a></p>
     
+<h1>DOCUMENTAÇÃO DO PROJETO</h1>
+
+<h2>DECISÕES TÉCNICAS TOMADAS</h2>
+<ul>
+    <li>Visual mais limpo, bonito e rápido de implementar para o kanban.</li>
+    <li>HTML + CSS ao invés de TypeScript + CSS Tailwind, por questões de familiaridade e agilidade.</li>
+    <li>Criação das colunas do kanban como componentes para geração dinâmica.</li>
+    <li>Concentração das principais funcionalidades/funções no código principal (App.js) para manter componentes mais limpos.</li>
+    <li>Utilização dinâmica do componente de edição: editar e adicionar cards. Sem a necessidade de um quarto componente semelhante a este.</li>
+</ul>
 
 
 
