@@ -51,5 +51,14 @@
     <li>Utilização dinâmica do componente de edição: editar e adicionar cards. Sem a necessidade de um quarto componente semelhante a este.</li>
 </ul>
 
-
+<h2>LIMITAÇÕES CONHECIDAS & MELHORIAS FUTURAS</h2>
+<ul>
+    <li>Criação de um componente de alert próprio do kanban ao invés de usar padrão javaScript.</li>
+    <li>Melhoria na responsividade dos componentes.</li>
+    <li>Melhoria na tela de criação/edição de tarefas: adicionar tracking para as tarefas e aumentar espaço para descrição.</li>
+    <li>Melhoria no Drag & Drop.</li>
+    <li>Criação e edição de tags para as tarefas, para o usuário poder diferenciar prioridade, projetos, etc...</li>
+    <li>Não é possível adicionar mais colunas, sendo uma limitação atual que pode ser implementada futuramente.</li>
+    <li>Não é possível reordenar cards de tarefas, também podendo ser implementada futuramente.</li>
+</ul>
 

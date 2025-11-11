@@ -54,7 +54,6 @@ function App() {
   }
 
 const handleSave = async (updatedTask) => {
-  
   if (!updatedTask.titulo || !updatedTask.titulo.trim()) {
     alert("O título é obrigatório.");
     return;
@@ -118,20 +117,20 @@ const handleSave = async (updatedTask) => {
   };
 
   function handleDragEnd(event) {
-  const { active, over} = event;
+    const { active, over} = event;
 
-  if (!over) return;
+    if (!over) return;
 
-  const taskId = active.id;
-  const newStatus = over.id;
-  
-  const taskToUpdate = tasks.find(task => task.id === taskId);
-  if (!taskToUpdate) return;
+    const taskId = active.id;
+    const newStatus = over.id;
+    
+    const taskToUpdate = tasks.find(task => task.id === taskId);
+    if (!taskToUpdate) return;
 
-  setTasks(prevTasks =>
-    prevTasks.map(task =>
-      task.id === taskId ? { ...task, status: newStatus } : task
-    )
+    setTasks(prevTasks =>
+      prevTasks.map(task =>
+        task.id === taskId ? { ...task, status: newStatus } : task
+      )
   );
 
   fetch(`${API_URL}/${taskId}`, {
