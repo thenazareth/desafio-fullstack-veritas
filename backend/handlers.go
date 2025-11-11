@@ -20,16 +20,20 @@ func createTask(w http.ResponseWriter, r *http.Request) {
     
     var newTask Task
     err := json.NewDecoder(r.Body).Decode(&newTask)
+
+    //validação JSON
     if err != nil {
         http.Error(w, "JSON inválido", http.StatusBadRequest)
         return
     }
     
+    // validação de título
     if newTask.Titulo == "" {
         http.Error(w, "Título é obrigatório", http.StatusBadRequest)
         return
     }
     
+    // validação de status --> ???
     validStatus := map[string]bool{
         "todo":       true,
         "inprogress": true,
@@ -55,6 +59,8 @@ func updateTask(w http.ResponseWriter, r *http.Request) {
     
     params := mux.Vars(r)
     id, err := strconv.Atoi(params["id"])
+
+    // validação de id
     if err != nil {
         http.Error(w, "ID inválido", http.StatusBadRequest)
         return
@@ -62,16 +68,20 @@ func updateTask(w http.ResponseWriter, r *http.Request) {
     
     var updatedTask Task
     err = json.NewDecoder(r.Body).Decode(&updatedTask)
+
+    //validação do json
     if err != nil {
         http.Error(w, "JSON inválido", http.StatusBadRequest)
         return
     }
     
+    // validação de título
     if updatedTask.Titulo == "" {
         http.Error(w, "Título é obrigatório", http.StatusBadRequest)
         return
     }
     
+    // validação de status --> ???
     validStatus := map[string]bool{
         "todo":       true,
         "inprogress": true,
@@ -82,6 +92,7 @@ func updateTask(w http.ResponseWriter, r *http.Request) {
         return
     }
     
+    // acha a task e atualiza
     for i, task := range tasks {
         if task.ID == id {
             updatedTask.ID = id 
@@ -101,11 +112,14 @@ func deleteTask(w http.ResponseWriter, r *http.Request) {
     
     params := mux.Vars(r)
     id, err := strconv.Atoi(params["id"])
+
+    // validação de id
     if err != nil {
         http.Error(w, "ID inválido", http.StatusBadRequest)
         return
     }
     
+    // acha a task e deleta
     for i, task := range tasks {
         if task.ID == id {
             

@@ -19,7 +19,6 @@ func main() {
 	//fmt.Printf("Nmr de tarefas carregadas: %d\n", len(tasks)) DEBUG
 
 	router := mux.NewRouter()
-	//router.Use(corsMiddleware)
 
 	router.HandleFunc("/tasks", getTasks).Methods("GET")
 	router.HandleFunc("/tasks", createTask).Methods("POST")
@@ -37,6 +36,7 @@ func main() {
     log.Fatal(http.ListenAndServe(":8080", handler))
 }
 
+//cria novo ID
 func findNextID() int {
 	maxID := 0
 	for _, task := range tasks {
@@ -47,10 +47,12 @@ func findNextID() int {
 	return maxID + 1
 }
 
+//funções de persistencia do json
 func loadTasks() {
 	file, err := os.ReadFile("tasks.json")
 	if err != nil {
-		fmt.Println("Arquivo não encontrado, criando novo...")
+		// cria um novo json caso não exista
+		//fmt.Println("Arquivo não encontrado, criando novo...") DEBUG
 		tasks = []Task{}
 		return
 	}
@@ -58,7 +60,7 @@ func loadTasks() {
 	var store TaskStore
 	json.Unmarshal(file, &store)
 	tasks = store.Tasks
-	fmt.Printf("Tarefas no arquivo: %+v\n", tasks)
+	//fmt.Printf("Tarefas no arquivo: %+v\n", tasks) DEBUG
 }
 
 func saveTasks() {
@@ -76,105 +78,3 @@ func saveTasks() {
 		return
 	}
 }
-
-// func createTask(w http.ResponseWriter, r *http.Request) {
-//     w.Header().Set("Content-Type", "application/json")
-    
-//     var newTask Task
-//     err := json.NewDecoder(r.Body).Decode(&newTask)
-//     if err != nil {
-//         http.Error(w, "JSON inválido", http.StatusBadRequest)
-//         return
-//     }
-    
-//     if newTask.Titulo == "" {
-//         http.Error(w, "Título é obrigatório", http.StatusBadRequest)
-//         return
-//     }
-    
-//     validStatus := map[string]bool{
-//         "todo":       true,
-//         "inprogress": true,
-//         "done":       true,
-//     }
-//     if !validStatus[newTask.Status] {
-//         http.Error(w, "Status inválido. Use: todo, inprogress ou done", http.StatusBadRequest)
-//         return
-//     }
-    
-//     newTask.ID = findNextID()
-//     tasks = append(tasks, newTask)
-    
-//     saveTasks()
-    
-//     w.WriteHeader(http.StatusCreated)
-//     json.NewEncoder(w).Encode(newTask)
-// }
-
-// func updateTask(w http.ResponseWriter, r *http.Request) {
-//     w.Header().Set("Content-Type", "application/json")
-    
-//     params := mux.Vars(r)
-//     id, err := strconv.Atoi(params["id"])
-//     if err != nil {
-//         http.Error(w, "ID inválido", http.StatusBadRequest)
-//         return
-//     }
-    
-//     var updatedTask Task
-//     err = json.NewDecoder(r.Body).Decode(&updatedTask)
-//     if err != nil {
-//         http.Error(w, "JSON inválido", http.StatusBadRequest)
-//         return
-//     }
-    
-//     if updatedTask.Titulo == "" {
-//         http.Error(w, "Título é obrigatório", http.StatusBadRequest)
-//         return
-//     }
-    
-//     validStatus := map[string]bool{
-//         "todo":       true,
-//         "inprogress": true,
-//         "done":       true,
-//     }
-//     if !validStatus[updatedTask.Status] {
-//         http.Error(w, "Status inválido", http.StatusBadRequest)
-//         return
-//     }
-    
-//     for i, task := range tasks {
-//         if task.ID == id {
-//             updatedTask.ID = id 
-//             tasks[i] = updatedTask
-//             saveTasks()
-//             json.NewEncoder(w).Encode(updatedTask)
-//             return
-//         }
-//     }
-    
-//     http.Error(w, "Tarefa não encontrada", http.StatusNotFound)
-// }
-
-// func deleteTask(w http.ResponseWriter, r *http.Request) {
-//     w.Header().Set("Content-Type", "application/json")
-    
-//     params := mux.Vars(r)
-//     id, err := strconv.Atoi(params["id"])
-//     if err != nil {
-//         http.Error(w, "ID inválido", http.StatusBadRequest)
-//         return
-//     }
-    
-//     for i, task := range tasks {
-//         if task.ID == id {
-            
-//             tasks = append(tasks[:i], tasks[i+1:]...)
-//             saveTasks()
-//             w.WriteHeader(http.StatusNoContent)
-//             return
-//         }
-//     }
-    
-//     http.Error(w, "Tarefa não encontrada", http.StatusNotFound)
-// }
