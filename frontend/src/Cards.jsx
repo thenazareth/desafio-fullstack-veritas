@@ -5,10 +5,12 @@ import { useDraggable } from '@dnd-kit/core';
 
 const Cards = ({task, onEdit, onDelete}) =>{
 
+    //controle drag
     const {attributes, listeners, setNodeRef, transform} = useDraggable({
         id: task.id,
     });
 
+    //movimento do card
     const style = transform ? {
         transform: `translate(${transform.x}px, ${transform.y}px)`,
         cursor: 'grabbing',
@@ -23,12 +25,12 @@ const Cards = ({task, onEdit, onDelete}) =>{
         {...listeners}>
             <div className="taskHeader">
                 <button id="editButton"
-                onPointerDown={(e) => e.stopPropagation()}
+                onPointerDown={(e) => e.stopPropagation()} //para drag para clicar no botão
                 onClick={() => onEdit(task)}>
                     <img src={EditIcon} alt="Edit" />
                 </button>
                 <button id="closeButton"
-                onPointerDown={(e) => e.stopPropagation()}
+                onPointerDown={(e) => e.stopPropagation()} //para drag para clicar no botão
                 onClick={() => onDelete(task.id)}>
                     <img src={Close} alt="Close" />
                 </button>

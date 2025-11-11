@@ -1,7 +1,9 @@
-import React, {useState} from "react"
+import {useState} from "react"
 import './Editor.css'
 
 const Editor =({task, onSave, onClose, mode='edit'}) =>{
+
+    // controle do modo do componente
     const [EditCard, setEditCard] = useState(
         mode === 'add'
         ? {titulo: '', descricao: '', status: 'todo'}
@@ -12,6 +14,7 @@ const Editor =({task, onSave, onClose, mode='edit'}) =>{
         }
     );
 
+    // salva 
     const handleSave = () => {
         const updated = mode === 'edit'
             ? { ...EditCard, id: task.id } 
@@ -20,6 +23,7 @@ const Editor =({task, onSave, onClose, mode='edit'}) =>{
         onSave(updated);
     };
 
+    // titulo dinâmico do componente
     const header = mode === 'add' ? 'Adicionar Tarefa:' : 'Editar Tarefa';
 
     return (
@@ -32,7 +36,7 @@ const Editor =({task, onSave, onClose, mode='edit'}) =>{
                     value={EditCard.titulo}
                     onChange={(e) => setEditCard({...EditCard, titulo: e.target.value})} 
                     placeholder="Nome da tarefa..."
-                    maxLength={25}>
+                    maxLength={20}>
                     </input>   
                 </div>
                 <div className="contentMidle">
