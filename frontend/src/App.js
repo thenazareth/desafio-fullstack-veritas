@@ -6,8 +6,10 @@ import './App.css';
 
 function App() {
 
-   const [tasks, setTasks] = useState([]);
-   const API_URL = 'http://localhost:8080/tasks';
+  // API
+  const [tasks, setTasks] = useState([]);
+
+  const API_URL = 'http://localhost:8080/tasks';
 
   useEffect(() => {
     fetchTasks();
@@ -23,20 +25,21 @@ function App() {
     }
   };
 
+  //colunas
   const ColumnsType = [
     { id: 'todo', title: 'A FAZER' },
     { id: 'inprogress', title: 'EM PROGRESSO' },
     { id: 'done', title: 'CONCLUÍDO' },
   ];
 
-  
-
+  //controle do componente de edição/criação
   const [modalState, setModalState] = useState({
     isOpen: false,
     mode: 'edit',
     task: null
   });
 
+  // ------ funções CRUD do kanban -------
   const handleAddCard = () => {
     setModalState({
       isOpen: true,
@@ -54,6 +57,7 @@ function App() {
   }
 
 const handleSave = async (updatedTask) => {
+  //valida título do card com um alert simples
   if (!updatedTask.titulo || !updatedTask.titulo.trim()) {
     alert("O título é obrigatório.");
     return;
@@ -116,6 +120,7 @@ const handleSave = async (updatedTask) => {
     }
   };
 
+  //controle da função Drag and Drop 
   function handleDragEnd(event) {
     const { active, over} = event;
 
@@ -151,7 +156,7 @@ const handleSave = async (updatedTask) => {
     );
   });
 }
-
+  //frontend da aplicação
   return (
     <div className="App">
       <div className="kanbanHeader">
