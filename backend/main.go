@@ -16,10 +16,10 @@ var tasks []Task
 func main() {
 	
 	loadTasks()
-	//fmt.Printf("Nmr de tarefas carregadas: %d\n", len(tasks)) 
+	//fmt.Printf("Nmr de tarefas carregadas: %d\n", len(tasks)) DEBUG
 
 	router := mux.NewRouter()
-	router.Use(corsMiddleware)
+	//router.Use(corsMiddleware)
 
 	router.HandleFunc("/tasks", getTasks).Methods("GET")
 	router.HandleFunc("/tasks", createTask).Methods("POST")
@@ -35,42 +35,7 @@ func main() {
 
     handler := c.Handler(router)
     log.Fatal(http.ListenAndServe(":8080", handler))
-	
-	nextID := findNextID()
-	//fmt.Printf("Próximo ID: %d\n", nextID)
-	
-	newTask := Task{
-		ID:        nextID,
-		Titulo:    "Teste persistência",
-		Descricao: "Verificar se JSON está funcionando",
-		Status:    "todo",
-	}
-	tasks = append(tasks, newTask)
-	
-	saveTasks()
-	//fmt.Println("Tarefa salva")
 }
-
-func corsMiddleware(next http.Handler) http.Handler {
-    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        w.Header().Set("Access-Control-Allow-Origin", "*")
-        w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH")
-        w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
-
-        if r.Method == http.MethodOptions {
-            w.WriteHeader(http.StatusNoContent)
-            return
-        }
-
-        next.ServeHTTP(w, r)
-    })
-}
-
-
-// func getTasks(w http.ResponseWriter, r *http.Request) {
-// 	w.Header().Set("Content-Type", "application/json")
-// 	json.NewEncoder(w).Encode(tasks)
-// }
 
 func findNextID() int {
 	maxID := 0

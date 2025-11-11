@@ -4,57 +4,49 @@
       "id": 1,
       "titulo": "Frondend: Criar frontend em REACT",
       "descricao": "Instalar pacotes, criar componentes",
-      "status": "todo",
-      "order": 0
-    },
-    {
-      "id": 2,
-      "titulo": "Frontend: Usar Drag and Drop",
-      "descricao": "Instalar Dnd kit e implementar",
-      "status": "done",
-      "order": 0
+      "status": "todo"
     },
     {
       "id": 4,
       "titulo": "Backend: Persistir JSON ",
       "descricao": "Criar tasks.json e funções de persistencia",
-      "status": "inprogress",
-      "order": 0
+      "status": "inprogress"
     },
     {
       "id": 5,
       "titulo": "Backend: Criar endpoints",
       "descricao": "Implementar GET, PUT, DELETE e POST",
-      "status": "done",
-      "order": 0
+      "status": "done"
     },
     {
       "id": 6,
       "titulo": "Backend: Linkar com o frontend",
       "descricao": "Ligar backend com frontend",
-      "status": "done",
-      "order": 0
+      "status": "done"
     },
     {
       "id": 7,
       "titulo": "Backend: Mexer no CORS",
       "descricao": "Instalar pacotes e criar função",
-      "status": "done",
-      "order": 0
+      "status": "todo"
     },
     {
       "id": 8,
       "titulo": "DOCKER FUNFA",
       "descricao": "testando o bug",
-      "status": "todo",
-      "order": 0
+      "status": "done"
     },
     {
       "id": 9,
       "titulo": "TESTANDO MODULARIZAÇÃO",
       "descricao": "",
-      "status": "inprogress",
-      "order": 0
+      "status": "inprogress"
+    },
+    {
+      "id": 10,
+      "titulo": "testando ID",
+      "descricao": "asasasas",
+      "status": "todo"
     }
   ]
 }
