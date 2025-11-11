@@ -61,6 +61,7 @@ func loadTasks() {
 	json.Unmarshal(file, &store)
 	tasks = store.Tasks
 	//fmt.Printf("Tarefas no arquivo: %+v\n", tasks) DEBUG
+	fmt.Printf("RODANDO BABY 😎")
 }
 
 func saveTasks() {
